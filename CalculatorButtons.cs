@@ -398,6 +398,45 @@ public class SquaredButton : Button
         );
     }
 }
+
+public class PowerOfButton : Button
+{
+    public PowerOfButton(Size FormSize) {
+        this.Text = "xⁿ";
+        this.Width = 40; // 40 pixels in width
+        this.Height = 40; // 40 pixels in height
+        this.Location = new Point(
+            FormSize.Width - Width - 350, // 350 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+        this.FlatStyle = FlatStyle.Flat;
+        this.FlatAppearance.BorderSize = 0;
+        this.ForeColor = Color.DimGray;
+        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        this.Click += new EventHandler(powerOfButton_Click);
+    }
+
+    public void powerOfButton_Click(object? sender, EventArgs e) {
+
+        // If there is a value in the outputBox, we start building off that value, else keep building the expressionBox
+        // Allows us to call Enter in the middle of an expression, then pickup from there
+        if (CalculatorWindow.outputBox.Text.Length > 0) {
+            CalculatorWindow.expressionBox.Text = CalculatorWindow.outputBox.Text + "^";
+            CalculatorWindow.outputBox.Text = "";
+        }
+        else {
+            CalculatorWindow.expressionBox.Text += "^";
+        }
+        CalculatorWindow.Instance.OnButtonPress();
+    }
+
+    public void powerOfButton_OnWindowResize(Size FormSize) {
+        this.Location = new Point(
+            FormSize.Width - Width - 350, // 350 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+    }
+}
 #endregion
 
 #region Number And Value Buttons
@@ -862,7 +901,7 @@ public class HelpLink : Button
         this.Width = 80; // 80 pixels in width
         this.Height = 25; // 20 pixels in height
         this.Location = new Point(
-            40, // 40 pixels from left border
+            33, // 33 pixels from left border | appears as 40 pixels due to text padding (unable to give perfect 0 pixel padding for some reason)
             5 // 5 pixels from top border
         );
         this.FlatStyle = FlatStyle.Flat;
@@ -875,7 +914,11 @@ public class HelpLink : Button
 
     public void helpLink_Click(object? sender, EventArgs e) {
         try {
-            System.Diagnostics.Process.Start(""); // GitHub Project Link to ReadMe.MD goes here
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo {
+                UseShellExecute = true,
+                FileName = "https://github.com/SuzerainY/YAFC"
+            };
+            System.Diagnostics.Process.Start(startInfo); // GitHub Project Link to README
         }
         catch (Exception) {
             CalculatorWindow.outputBox.Text = "Cannot Open Link";
@@ -885,7 +928,7 @@ public class HelpLink : Button
 
     public void helpLink_OnWindowResize() {
         this.Location = new Point(
-            40, // 40 pixels from left border
+            33, // 33 pixels from left border | appears as 40 pixels due to text padding (unable to give perfect 0 pixel padding for some reason)
             5 // 5 pixels from top border
         );
     }

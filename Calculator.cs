@@ -35,6 +35,7 @@ public partial class CalculatorWindow : Form
         logTenButton.logTenButton_OnWindowResize(FormSize: this.ClientSize);
         squareRootButton.squareRootButton_OnWindowResize(FormSize: this.ClientSize);
         squaredButton.squaredButton_OnWindowResize(FormSize: this.ClientSize);
+        powerOfButton.powerOfButton_OnWindowResize(FormSize: this.ClientSize);
 
         leftParenthesis.leftParenthesis_OnWindowResize(FormSize: this.ClientSize);
         rightParenthesis.rightParenthesis_OnWindowResize(FormSize: this.ClientSize);

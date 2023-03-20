@@ -21,6 +21,7 @@ public partial class CalculatorWindow
     private LogTenButton logTenButton;
     private SquareRootButton squareRootButton;
     private SquaredButton squaredButton;
+    private PowerOfButton powerOfButton;
     private LeftParenthesis leftParenthesis;
     private RightParenthesis rightParenthesis;
     private NumberPeriod numberPeriod;
@@ -99,6 +100,8 @@ public partial class CalculatorWindow
         this.Controls.Add(squareRootButton);
         squaredButton = new SquaredButton(FormSize: this.ClientSize); // SQUARED Button
         this.Controls.Add(squaredButton);
+        powerOfButton = new PowerOfButton(FormSize: this.ClientSize); // POWER OF Button
+        this.Controls.Add(powerOfButton);
 
         leftParenthesis = new LeftParenthesis(FormSize: this.ClientSize); // Left Parenthesis
         this.Controls.Add(leftParenthesis);
