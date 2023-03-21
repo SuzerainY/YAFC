@@ -22,6 +22,7 @@ public partial class CalculatorWindow
     private SquareRootButton squareRootButton;
     private SquaredButton squaredButton;
     private PowerOfButton powerOfButton;
+    private NRootButton nRootButton;
     private LeftParenthesis leftParenthesis;
     private RightParenthesis rightParenthesis;
     private NumberPeriod numberPeriod;
@@ -102,6 +103,8 @@ public partial class CalculatorWindow
         this.Controls.Add(squaredButton);
         powerOfButton = new PowerOfButton(FormSize: this.ClientSize); // POWER OF Button
         this.Controls.Add(powerOfButton);
+        nRootButton = new NRootButton(FormSize: this.ClientSize); // N ROOT Button
+        this.Controls.Add(nRootButton);
 
         leftParenthesis = new LeftParenthesis(FormSize: this.ClientSize); // Left Parenthesis
         this.Controls.Add(leftParenthesis);

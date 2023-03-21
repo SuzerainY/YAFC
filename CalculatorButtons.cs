@@ -342,7 +342,7 @@ public class SquareRootButton : Button
         this.FlatStyle = FlatStyle.Flat;
         this.FlatAppearance.BorderSize = 0;
         this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        this.Font = new Font("Times New Roman", 14, FontStyle.Bold);
         this.Click += new EventHandler(squareRootButton_Click);
     }
 
@@ -377,7 +377,7 @@ public class SquaredButton : Button
         this.FlatStyle = FlatStyle.Flat;
         this.FlatAppearance.BorderSize = 0;
         this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        this.Font = new Font("Times New Roman", 14, FontStyle.Bold);
         this.Click += new EventHandler(squaredButton_Click);
     }
 
@@ -412,7 +412,7 @@ public class PowerOfButton : Button
         this.FlatStyle = FlatStyle.Flat;
         this.FlatAppearance.BorderSize = 0;
         this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        this.Font = new Font("Times New Roman", 14, FontStyle.Bold);
         this.Click += new EventHandler(powerOfButton_Click);
     }
 
@@ -433,6 +433,45 @@ public class PowerOfButton : Button
     public void powerOfButton_OnWindowResize(Size FormSize) {
         this.Location = new Point(
             FormSize.Width - Width - 350, // 350 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+    }
+}
+
+public class NRootButton : Button
+{
+    public NRootButton(Size FormSize) {
+        this.Text = "ⁿ√";
+        this.Width = 40; // 40 pixels in width
+        this.Height = 40; // 40 pixels in height
+        this.Location = new Point(
+            FormSize.Width - Width - 300, // 300 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+        this.FlatStyle = FlatStyle.Flat;
+        this.FlatAppearance.BorderSize = 0;
+        this.ForeColor = Color.DimGray;
+        this.Font = new Font("Times New Roman", 14, FontStyle.Bold);
+        this.Click += new EventHandler(nRootButton_Click);
+    }
+
+    public void nRootButton_Click(object? sender, EventArgs e) {
+
+        // If there is a value in the outputBox, we start building off that value, else keep building the expressionBox
+        // Allows us to call Enter in the middle of an expression, then pickup from there
+        if (CalculatorWindow.outputBox.Text.Length > 0) {
+            CalculatorWindow.expressionBox.Text = CalculatorWindow.outputBox.Text + "root";
+            CalculatorWindow.outputBox.Text = "";
+        }
+        else {
+            CalculatorWindow.expressionBox.Text += "root";
+        }
+        CalculatorWindow.Instance.OnButtonPress();
+    }
+
+    public void nRootButton_OnWindowResize(Size FormSize) {
+        this.Location = new Point(
+            FormSize.Width - Width - 300, // 300 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
     }
