@@ -42,7 +42,7 @@ public static class Evaluation
                 if (expression[j] == '(') {
                     parenthesisCounter--;
                     // There are no more indices to check
-                    if (j == 0 && parenthesisCounter == 0) {
+                    if (j == 0 || parenthesisCounter == 0) {
                         baseIndex = (j, endOfBaseBlock);
                         parenthesisCounter = 0;
                         break;
@@ -107,7 +107,7 @@ public static class Evaluation
                 if (expression[k] == ')') {
                     parenthesisCounter--;
                     // There are no more indices to check
-                    if (k == expression.Length - 1 && parenthesisCounter == 0) {
+                    if (k == expression.Length - 1 || parenthesisCounter == 0) {
                         expIndex = (startOfExponentBlock, k);
                         parenthesisCounter = 0;
                         break;
