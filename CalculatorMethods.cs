@@ -192,6 +192,13 @@ public static class Evaluation
                         startOfRightBlockFound = true;
                         startOfRightBlock = k;
                     }
+                    // We found a '-', but this is not at the start of the expression, and we are not wrapped in parenthesis, then we have found the end of the right block
+                    // Example: "5^2-1" we will trigger this when we hit the '-' | Example: "5^(2-1)" this will not trigger because parenthesisCounter != 0
+                    else if (entry[k] == '-' && parenthesisCounter == 0) {
+                        rightBlockIndex = (startOfRightBlock, k-1);
+                        parenthesisCounter = 0;
+                        break;
+                    }
 
                     // Capture max index as the natural end of this block and i+1 as the start of the block | this block represents the exponent of the Pow
                     if (k == entry.Length - 1) {
