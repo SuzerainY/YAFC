@@ -477,6 +477,45 @@ public class NRootButton : Button
     }
 }
 
+public class NLogBaseButton : Button
+{
+    public NLogBaseButton(Size FormSize) {
+        this.Text = "logₙ";
+        this.Width = 40; // 40 pixels in width
+        this.Height = 40; // 40 pixels in height
+        this.Location = new Point(
+            FormSize.Width - Width - 260, // 300 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+        this.FlatStyle = FlatStyle.Flat;
+        this.FlatAppearance.BorderSize = 0;
+        this.ForeColor = Color.DimGray;
+        this.Font = new Font("Times New Roman", 10, FontStyle.Bold);
+        this.Click += new EventHandler(nLogBaseButton_Click);
+    }
+
+    public void nLogBaseButton_Click(object? sender, EventArgs e) {
+
+        // If there is a value in the outputBox, we start building off that value, else keep building the expressionBox
+        // Allows us to call Enter in the middle of an expression, then pickup from there
+        if (CalculatorWindow.outputBox.Text.Length > 0) {
+            CalculatorWindow.expressionBox.Text = CalculatorWindow.outputBox.Text + "logbase";
+            CalculatorWindow.outputBox.Text = "";
+        }
+        else {
+            CalculatorWindow.expressionBox.Text += "logbase";
+        }
+        CalculatorWindow.Instance.OnButtonPress();
+    }
+
+    public void nLogBaseButton_OnWindowResize(Size FormSize) {
+        this.Location = new Point(
+            FormSize.Width - Width - 260, // 300 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+    }
+}
+
 public class InverseButton : Button
 {
     public InverseButton(Size FormSize) {
@@ -1028,10 +1067,12 @@ public class EnterButton : Button
 
     public void enterButton_Click(object? sender, EventArgs e) {
         try {
-            CalculatorWindow.outputBox.Text = Evaluation.EvaluateExpression(entry: CalculatorWindow.expressionBox.Text);
+            if (CalculatorWindow.expressionBox.Text.Length > 0) {
+                CalculatorWindow.outputBox.Text = Evaluation.EvaluateExpression(entry: CalculatorWindow.expressionBox.Text);
+            }
         }
         catch (Exception) {
-            CalculatorWindow.outputBox.Text = "Error";
+            CalculatorWindow.outputBox.Text = "ERROR";
         }
         CalculatorWindow.Instance.OnButtonPress();
     }

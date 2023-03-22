@@ -23,6 +23,7 @@ public partial class CalculatorWindow
     private SquaredButton squaredButton;
     private PowerOfButton powerOfButton;
     private NRootButton nRootButton;
+    private NLogBaseButton nLogBaseButton;
     private InverseButton inverseButton;
     private LeftParenthesis leftParenthesis;
     private RightParenthesis rightParenthesis;
@@ -106,6 +107,8 @@ public partial class CalculatorWindow
         this.Controls.Add(powerOfButton);
         nRootButton = new NRootButton(FormSize: this.ClientSize); // N ROOT Button
         this.Controls.Add(nRootButton);
+        nLogBaseButton = new NLogBaseButton(FormSize: this.ClientSize); // N LOG BASE Button
+        this.Controls.Add(nLogBaseButton);
         inverseButton = new InverseButton(FormSize: this.ClientSize); // INVERSE Button
         this.Controls.Add(inverseButton);
 
