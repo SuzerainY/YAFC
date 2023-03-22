@@ -18,43 +18,47 @@ public partial class CalculatorWindow : Form
 
     // Process for Handling Form Resizing
     private void Window_Resize(object? sender, EventArgs trigger) {
-        expressionBox.expressionBox_OnWindowResize(FormSize: this.ClientSize);
-        outputBox.outputBox_OnWindowResize(FormSize: this.ClientSize);
+        Size newSize = this.ClientSize;
+
+        expressionBox.expressionBox_OnWindowResize(FormSize: newSize);
+        outputBox.outputBox_OnWindowResize(FormSize: newSize);
         helpLink.helpLink_OnWindowResize();
-        enterButton.enterButton_OnWindowResize(FormSize: this.ClientSize);
-        backButton.backButton_OnWindowResize(FormSize: this.ClientSize);
-        clearButton.clearButton_OnWindowResize(FormSize: this.ClientSize);
-        percentButton.percentButton_OnWindowResize(FormSize: this.ClientSize);
+        enterButton.enterButton_OnWindowResize(FormSize: newSize);
+        backButton.backButton_OnWindowResize(FormSize: newSize);
+        clearButton.clearButton_OnWindowResize(FormSize: newSize);
+        percentButton.percentButton_OnWindowResize(FormSize: newSize);
 
-        plusButton.plusButton_OnWindowResize(FormSize: this.ClientSize);
-        minusButton.minusButton_OnWindowResize(FormSize: this.ClientSize);
-        divideButton.divideButton_OnWindowResize(FormSize: this.ClientSize);
-        multiplyButton.multiplyButton_OnWindowResize(FormSize: this.ClientSize);
-        changeSignButton.changeSignButton_OnWindowResize(FormSize: this.ClientSize);
-        naturalLogButton.naturalLogButton_OnWindowResize(FormSize: this.ClientSize);
-        logTenButton.logTenButton_OnWindowResize(FormSize: this.ClientSize);
-        squareRootButton.squareRootButton_OnWindowResize(FormSize: this.ClientSize);
-        squaredButton.squaredButton_OnWindowResize(FormSize: this.ClientSize);
-        powerOfButton.powerOfButton_OnWindowResize(FormSize: this.ClientSize);
-        nRootButton.nRootButton_OnWindowResize(FormSize: this.ClientSize);
-        nLogBaseButton.nLogBaseButton_OnWindowResize(FormSize: this.ClientSize);
-        inverseButton.inverseButton_OnWindowResize(FormSize: this.ClientSize);
+        plusButton.plusButton_OnWindowResize(FormSize: newSize);
+        minusButton.minusButton_OnWindowResize(FormSize: newSize);
+        divideButton.divideButton_OnWindowResize(FormSize: newSize);
+        multiplyButton.multiplyButton_OnWindowResize(FormSize: newSize);
+        changeSignButton.changeSignButton_OnWindowResize(FormSize: newSize);
+        naturalLogButton.naturalLogButton_OnWindowResize(FormSize: newSize);
+        logTenButton.logTenButton_OnWindowResize(FormSize: newSize);
+        squareRootButton.squareRootButton_OnWindowResize(FormSize: newSize);
+        squaredButton.squaredButton_OnWindowResize(FormSize: newSize);
+        powerOfButton.powerOfButton_OnWindowResize(FormSize: newSize);
+        nRootButton.nRootButton_OnWindowResize(FormSize: newSize);
+        nLogBaseButton.nLogBaseButton_OnWindowResize(FormSize: newSize);
+        inverseButton.inverseButton_OnWindowResize(FormSize: newSize);
+        eToXButton.eToXButton_OnWindowResize(FormSize: newSize);
+        absoluteValueButton.absoluteValueButton_OnWindowResize(FormSize: newSize);
 
-        leftParenthesis.leftParenthesis_OnWindowResize(FormSize: this.ClientSize);
-        rightParenthesis.rightParenthesis_OnWindowResize(FormSize: this.ClientSize);
-        numberPeriod.numberPeriod_OnWindowResize(FormSize: this.ClientSize);
-        numberZero.numberZero_OnWindowResize(FormSize: this.ClientSize);
-        numberOne.numberOne_OnWindowResize(FormSize: this.ClientSize);
-        numberTwo.numberTwo_OnWindowResize(FormSize: this.ClientSize);
-        numberThree.numberThree_OnWindowResize(FormSize: this.ClientSize);
-        numberFour.numberFour_OnWindowResize(FormSize: this.ClientSize);
-        numberFive.numberFive_OnWindowResize(FormSize: this.ClientSize);
-        numberSix.numberSix_OnWindowResize(FormSize: this.ClientSize);
-        numberSeven.numberSeven_OnWindowResize(FormSize: this.ClientSize);
-        numberEight.numberEight_OnWindowResize(FormSize: this.ClientSize);
-        numberNine.numberNine_OnWindowResize(FormSize: this.ClientSize);
-        numberPI.numberPI_OnWindowResize(FormSize: this.ClientSize);
-        numberE.numberE_OnWindowResize(FormSize: this.ClientSize);
+        leftParenthesis.leftParenthesis_OnWindowResize(FormSize: newSize);
+        rightParenthesis.rightParenthesis_OnWindowResize(FormSize: newSize);
+        numberPeriod.numberPeriod_OnWindowResize(FormSize: newSize);
+        numberZero.numberZero_OnWindowResize(FormSize: newSize);
+        numberOne.numberOne_OnWindowResize(FormSize: newSize);
+        numberTwo.numberTwo_OnWindowResize(FormSize: newSize);
+        numberThree.numberThree_OnWindowResize(FormSize: newSize);
+        numberFour.numberFour_OnWindowResize(FormSize: newSize);
+        numberFive.numberFive_OnWindowResize(FormSize: newSize);
+        numberSix.numberSix_OnWindowResize(FormSize: newSize);
+        numberSeven.numberSeven_OnWindowResize(FormSize: newSize);
+        numberEight.numberEight_OnWindowResize(FormSize: newSize);
+        numberNine.numberNine_OnWindowResize(FormSize: newSize);
+        numberPI.numberPI_OnWindowResize(FormSize: newSize);
+        numberE.numberE_OnWindowResize(FormSize: newSize);
     }
 
     #region Keypress Events

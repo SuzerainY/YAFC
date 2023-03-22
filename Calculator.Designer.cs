@@ -25,6 +25,8 @@ public partial class CalculatorWindow
     private NRootButton nRootButton;
     private NLogBaseButton nLogBaseButton;
     private InverseButton inverseButton;
+    private EToXButton eToXButton;
+    private AbsoluteValueButton absoluteValueButton;
     private LeftParenthesis leftParenthesis;
     private RightParenthesis rightParenthesis;
     private NumberPeriod numberPeriod;
@@ -111,6 +113,10 @@ public partial class CalculatorWindow
         this.Controls.Add(nLogBaseButton);
         inverseButton = new InverseButton(FormSize: this.ClientSize); // INVERSE Button
         this.Controls.Add(inverseButton);
+        eToXButton = new EToXButton(FormSize: this.ClientSize); // E TO THE POWER OF X Button
+        this.Controls.Add(eToXButton);
+        absoluteValueButton = new AbsoluteValueButton(FormSize: this.ClientSize); // ABSOLUTE VALUE Button
+        this.Controls.Add(absoluteValueButton);
 
         leftParenthesis = new LeftParenthesis(FormSize: this.ClientSize); // Left Parenthesis
         this.Controls.Add(leftParenthesis);

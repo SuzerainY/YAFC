@@ -445,7 +445,7 @@ public class NRootButton : Button
         this.Width = 40; // 40 pixels in width
         this.Height = 40; // 40 pixels in height
         this.Location = new Point(
-            FormSize.Width - Width - 310, // 300 pixels from right edge
+            FormSize.Width - Width - 310, // 310 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
         this.FlatStyle = FlatStyle.Flat;
@@ -471,7 +471,7 @@ public class NRootButton : Button
 
     public void nRootButton_OnWindowResize(Size FormSize) {
         this.Location = new Point(
-            FormSize.Width - Width - 310, // 300 pixels from right edge
+            FormSize.Width - Width - 310, // 310 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
     }
@@ -484,7 +484,7 @@ public class NLogBaseButton : Button
         this.Width = 40; // 40 pixels in width
         this.Height = 40; // 40 pixels in height
         this.Location = new Point(
-            FormSize.Width - Width - 260, // 300 pixels from right edge
+            FormSize.Width - Width - 260, // 260 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
         this.FlatStyle = FlatStyle.Flat;
@@ -510,7 +510,7 @@ public class NLogBaseButton : Button
 
     public void nLogBaseButton_OnWindowResize(Size FormSize) {
         this.Location = new Point(
-            FormSize.Width - Width - 260, // 300 pixels from right edge
+            FormSize.Width - Width - 260, // 260 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
     }
@@ -523,7 +523,7 @@ public class InverseButton : Button
         this.Width = 40; // 40 pixels in width
         this.Height = 40; // 40 pixels in height
         this.Location = new Point(
-            FormSize.Width - Width - 220, // 300 pixels from right edge
+            FormSize.Width - Width - 220, // 220 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
         this.FlatStyle = FlatStyle.Flat;
@@ -545,7 +545,81 @@ public class InverseButton : Button
 
     public void inverseButton_OnWindowResize(Size FormSize) {
         this.Location = new Point(
-            FormSize.Width - Width - 220, // 300 pixels from right edge
+            FormSize.Width - Width - 220, // 220 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+    }
+}
+
+public class EToXButton : Button
+{
+    public EToXButton(Size FormSize) {
+        this.Text = "eˣ";
+        this.Width = 40; // 40 pixels in width
+        this.Height = 40; // 40 pixels in height
+        this.Location = new Point(
+            FormSize.Width - Width - 170, // 170 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+        this.FlatStyle = FlatStyle.Flat;
+        this.FlatAppearance.BorderSize = 0;
+        this.ForeColor = Color.DimGray;
+        this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
+        this.Click += new EventHandler(eToXButton_Click);
+    }
+
+    public void eToXButton_Click(object? sender, EventArgs e) {
+        try {
+            CalculatorWindow.outputBox.Text = $"{Math.Pow(Math.E, Convert.ToDouble(CalculatorWindow.outputBox.Text))}";
+        }
+        catch (Exception) {
+            // Don't do anything
+        }
+        CalculatorWindow.Instance.OnButtonPress();
+    }
+
+    public void eToXButton_OnWindowResize(Size FormSize) {
+        this.Location = new Point(
+            FormSize.Width - Width - 170, // 170 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+    }
+}
+
+public class AbsoluteValueButton : Button
+{
+    public AbsoluteValueButton(Size FormSize) {
+        this.Text = "Abs";
+        this.Width = 40; // 40 pixels in width
+        this.Height = 40; // 40 pixels in height
+        this.Location = new Point(
+            FormSize.Width - Width - 130, // 130 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+        this.FlatStyle = FlatStyle.Flat;
+        this.FlatAppearance.BorderSize = 0;
+        this.ForeColor = Color.DimGray;
+        this.Font = new Font("Times New Roman", 10, FontStyle.Bold);
+        this.Click += new EventHandler(absoluteValueButton_Click);
+    }
+
+    public void absoluteValueButton_Click(object? sender, EventArgs e) {
+
+        // If there is a value in the outputBox, we start building off that value, else keep building the expressionBox
+        // Allows us to call Enter in the middle of an expression, then pickup from there
+        if (CalculatorWindow.outputBox.Text.Length > 0) {
+            CalculatorWindow.expressionBox.Text = CalculatorWindow.outputBox.Text + "Abs(";
+            CalculatorWindow.outputBox.Text = "";
+        }
+        else {
+            CalculatorWindow.expressionBox.Text += "Abs(";
+        }
+        CalculatorWindow.Instance.OnButtonPress();
+    }
+
+    public void absoluteValueButton_OnWindowResize(Size FormSize) {
+        this.Location = new Point(
+            FormSize.Width - Width - 130, // 130 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
     }
