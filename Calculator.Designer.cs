@@ -23,6 +23,7 @@ public partial class CalculatorWindow
     private SquaredButton squaredButton;
     private PowerOfButton powerOfButton;
     private NRootButton nRootButton;
+    private InverseButton inverseButton;
     private LeftParenthesis leftParenthesis;
     private RightParenthesis rightParenthesis;
     private NumberPeriod numberPeriod;
@@ -61,8 +62,8 @@ public partial class CalculatorWindow
         this.ClientSize = new System.Drawing.Size(430, 600);
         this.MinimumSize = new Size(430, 600);
         this.Text = "YAFC [YetAnotherFinancialCalculator]";
-        Icon YAFCicon = new Icon("images/YAFCicon.ico");
-        this.Icon = YAFCicon;
+        // Icon YAFCicon = new Icon("images/YAFCicon.ico");
+        // this.Icon = YAFCicon;
         this.BackColor = Color.FromArgb(unchecked((int)0xFF202020));
     }
     #endregion
@@ -105,6 +106,8 @@ public partial class CalculatorWindow
         this.Controls.Add(powerOfButton);
         nRootButton = new NRootButton(FormSize: this.ClientSize); // N ROOT Button
         this.Controls.Add(nRootButton);
+        inverseButton = new InverseButton(FormSize: this.ClientSize); // INVERSE Button
+        this.Controls.Add(inverseButton);
 
         leftParenthesis = new LeftParenthesis(FormSize: this.ClientSize); // Left Parenthesis
         this.Controls.Add(leftParenthesis);

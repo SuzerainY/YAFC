@@ -445,7 +445,7 @@ public class NRootButton : Button
         this.Width = 40; // 40 pixels in width
         this.Height = 40; // 40 pixels in height
         this.Location = new Point(
-            FormSize.Width - Width - 300, // 300 pixels from right edge
+            FormSize.Width - Width - 310, // 300 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
         this.FlatStyle = FlatStyle.Flat;
@@ -471,7 +471,42 @@ public class NRootButton : Button
 
     public void nRootButton_OnWindowResize(Size FormSize) {
         this.Location = new Point(
-            FormSize.Width - Width - 300, // 300 pixels from right edge
+            FormSize.Width - Width - 310, // 300 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+    }
+}
+
+public class InverseButton : Button
+{
+    public InverseButton(Size FormSize) {
+        this.Text = "1/x";
+        this.Width = 40; // 40 pixels in width
+        this.Height = 40; // 40 pixels in height
+        this.Location = new Point(
+            FormSize.Width - Width - 220, // 300 pixels from right edge
+            FormSize.Height - Height - 340 // 340 pixels from bottom edge
+        );
+        this.FlatStyle = FlatStyle.Flat;
+        this.FlatAppearance.BorderSize = 0;
+        this.ForeColor = Color.DimGray;
+        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        this.Click += new EventHandler(inverseButton_Click);
+    }
+
+    public void inverseButton_Click(object? sender, EventArgs e) {
+        try {
+            CalculatorWindow.outputBox.Text = $"{1/Convert.ToDouble(CalculatorWindow.outputBox.Text)}";
+        }
+        catch (Exception) {
+            // Don't do anything
+        }
+        CalculatorWindow.Instance.OnButtonPress();
+    }
+
+    public void inverseButton_OnWindowResize(Size FormSize) {
+        this.Location = new Point(
+            FormSize.Width - Width - 220, // 300 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
     }
