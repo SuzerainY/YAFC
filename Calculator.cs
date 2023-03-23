@@ -1,13 +1,23 @@
+using Microsoft.Win32;
+
 namespace FinancialCalculator;
 
 public partial class CalculatorWindow : Form
 {
+    private UserPreferenceChangedEventHandler UserPreferenceChanged;
+
     public CalculatorWindow() {
 
         Instance = this; // Singleton Instance for CalculatorWindow
 
         InitializeComponent(); // Create Form Window
         InitializeButtons(); // Create Buttons
+        LoadWindowsTheme(); // Fetch and Load User's Windows Color Theme
+
+        // Capture Changes In User Visual Preferences To Update Visual Styling
+        UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
+        SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
+        this.Disposed += new EventHandler(Form_Disposed); // Will Remove UserPreferenceChanged from SystemEvents on Form Disposal
 
         KeyPreview = true; // Prioritize Key Presses
         this.Resize += new EventHandler(Window_Resize); // Add Resize Handling

@@ -1,4 +1,6 @@
-﻿namespace FinancialCalculator;
+﻿using Microsoft.Win32;
+
+namespace FinancialCalculator;
 
 public partial class CalculatorWindow
 {
@@ -148,5 +150,27 @@ public partial class CalculatorWindow
         this.Controls.Add(numberPI);
         numberE = new NumberE(FormSize: this.ClientSize); // Number E / e
         this.Controls.Add(numberE);
+    }
+
+    // This Method Fetches Windows Theme Color And Applies To Calculator UI
+    private void LoadWindowsTheme() {
+        var themeColor = FinancialCalculatorWindowsTheme.WindowsTheme.GetAccentColor();
+
+        // Change Buttons To Match Theme
+        foreach (Button button in this.Controls.OfType<Button>()) {
+            button.FlatAppearance.BorderColor = themeColor;
+        }
+    }
+
+    // Capture when the user updates visual preferences
+    private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e) {
+        if (e.Category == UserPreferenceCategory.General || e.Category == UserPreferenceCategory.VisualStyle) {
+            LoadWindowsTheme();
+        }
+    }
+
+    // When form is disposed, remove event handler from system events
+    private void Form_Disposed(object sender, EventArgs e) {
+        SystemEvents.UserPreferenceChanged -= UserPreferenceChanged;
     }
 }

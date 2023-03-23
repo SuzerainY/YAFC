@@ -1162,7 +1162,7 @@ public class EnterButton : Button
 public class BackButton : Button
 {
     public BackButton(Size FormSize) {
-        this.Text = " « ";
+        this.Text = "«";
         this.Width = 40; // 40 pixels in width
         this.Height = 40; // 40 pixels in height
         this.Location = new Point(
@@ -1171,7 +1171,8 @@ public class BackButton : Button
         );
         this.FlatStyle = FlatStyle.Flat;
         this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.Black;
+        this.FlatAppearance.BorderColor = Color.White;
+        this.ForeColor = CalculatorWindow.Instance.BackColor;
         this.Font = new Font("Times New Roman", 22, FontStyle.Bold);
         this.Click += new EventHandler(backButton_Click);
         this.Paint += backButton_Paint;
@@ -1192,7 +1193,7 @@ public class BackButton : Button
     private void backButton_Paint(object? sender, PaintEventArgs e) {
 
         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-        e.Graphics.DrawEllipse(new Pen(Color.White, 2), 0, 0, Width - 2, Height - 2);
+        e.Graphics.DrawEllipse(new Pen(this.FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
         System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
         RectangleF ellipseRect = new RectangleF(0, 0, Width, Height);
@@ -1201,7 +1202,7 @@ public class BackButton : Button
 
         Region = new Region(path);
         SizeF textSize = e.Graphics.MeasureString(Text, Font);
-        PointF textPosition = new PointF((Width - textSize.Width) / 16, (Height - textSize.Height) / 8);
+        PointF textPosition = new PointF((Width - textSize.Width) / 2, (Height - textSize.Height) / 8);
         e.Graphics.DrawString(Text, Font, Brushes.White, textPosition);
     }
 }
@@ -1218,7 +1219,8 @@ public class ClearButton : Button
         );
         this.FlatStyle = FlatStyle.Flat;
         this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.White;
+        this.FlatAppearance.BorderColor = Color.White;
+        this.ForeColor = CalculatorWindow.Instance.BackColor;
         this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
         this.Click += new EventHandler(clearButton_Click);
         this.Paint += clearButton_Paint;
@@ -1247,7 +1249,7 @@ public class ClearButton : Button
     private void clearButton_Paint(object? sender, PaintEventArgs e) {
 
         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-        e.Graphics.DrawEllipse(new Pen(Color.White, 2), 0, 0, Width - 2, Height - 2);
+        e.Graphics.DrawEllipse(new Pen(this.FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
         System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
         RectangleF ellipseRect = new RectangleF(0, 0, Width, Height);
@@ -1255,6 +1257,9 @@ public class ClearButton : Button
         path.AddEllipse(ellipseRect);
 
         Region = new Region(path);
+        SizeF textSize = e.Graphics.MeasureString(Text, Font);
+        PointF textPosition = new PointF((Width - textSize.Width) / 2, (Height - textSize.Height) / 2);
+        e.Graphics.DrawString(Text, Font, Brushes.White, textPosition);
     }
 }
 
@@ -1269,9 +1274,9 @@ public class PercentButton : Button
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
         this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderColor = Color.White;
         this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.White;
+        this.FlatAppearance.BorderColor = Color.White;
+        this.ForeColor = CalculatorWindow.Instance.BackColor;
         this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
         this.Click += new EventHandler(percentButton_Click);
         this.Paint += percentButton_Paint;
@@ -1295,7 +1300,7 @@ public class PercentButton : Button
     private void percentButton_Paint(object? sender, PaintEventArgs e) {
 
         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-        e.Graphics.DrawEllipse(new Pen(Color.White, 2), 0, 0, Width - 2, Height - 2);
+        e.Graphics.DrawEllipse(new Pen(this.FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
         System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
         RectangleF ellipseRect = new RectangleF(0, 0, Width, Height);
