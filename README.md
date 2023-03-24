@@ -10,6 +10,6 @@ I've wanted to take on a project in a language lower-level than Python and JavaS
 <h2>How To Use</h2>
 <p><strong>General Concept:</strong> As a general purpose calculator, PEMDAS is followed. The user can build out mathematical expressions and return an output. After which, hitting another operator command will begin building a new expression off of the current output. To continue building on the previous expression, tap Clear once to Clear the current output. Tap Clear twice to Clear All. Almost all buttons are mapped to Keyboard Keys as intuition will follow. 'Delete' is mapped to Clear and 'End' or 'Esc' will both close the application.</p>
 
-<p>The Time Value of Money and Cash Flow Sections of the calculator act independently of the general purpose components. The sections follow standard practice will all physical-use financial calculators. Further explanation for each component can be found below.</p>
+<p>The Time Value of Money and Cash Flow sections of the calculator act independently of the general purpose components. The sections follow standard practice with all physical-use financial calculators. Further explanation for each component can be found below.</p>
 
 ---
