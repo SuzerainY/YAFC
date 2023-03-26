@@ -647,13 +647,40 @@ public class LeftParenthesis : Button
     public void leftParenthesis_Click(object? sender, EventArgs e) {
         CalculatorWindow.expressionBox.Text += "(";
         CalculatorWindow.Instance.OnButtonPress();
+        CalculatorWindow.leftParenthesisLabel.leftParenthesisLabelCount();
+        CalculatorWindow.rightParenthesisLabel.rightParenthesisLabelCount();
     }
-
     public void leftParenthesis_OnWindowResize(Size FormSize) {
+
         this.Location = new Point(
             FormSize.Width - Width - 350, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
+    }
+}
+
+public class LeftParenthesisLabel : Label
+{
+    public LeftParenthesisLabel(LeftParenthesis leftParenthesis) {
+        this.Text = "";
+        this.AutoSize = true;
+        this.Location = new Point(leftParenthesis.Location.X, leftParenthesis.Location.Y + leftParenthesis.Height - this.Height); // Set label to bottom left corner of leftParenthesis
+        this.Font = new Font("Times New Roman", 12, FontStyle.Regular);
+        this.ForeColor = Color.DimGray;
+    }
+
+    public void leftParenthesisLabel_OnWindowResize(LeftParenthesis leftParenthesis) {
+        this.Location = new Point(leftParenthesis.Location.X, leftParenthesis.Location.Y + leftParenthesis.Height - this.Height); // Set label to bottom left corner of leftParenthesis
+    }
+
+    public void leftParenthesisLabelCount() {
+        int leftParenthesisOffset = CalculatorWindow.expressionBox.Text.Count(c => c == '(') - CalculatorWindow.expressionBox.Text.Count(c => c == ')');
+        if (leftParenthesisOffset > 0) {
+            this.Text = $"{leftParenthesisOffset}";
+        }
+        else {
+            this.Text = "";
+        }
     }
 }
 
@@ -677,6 +704,8 @@ public class RightParenthesis : Button
     public void rightParenthesis_Click(object? sender, EventArgs e) {
         CalculatorWindow.expressionBox.Text += ")";
         CalculatorWindow.Instance.OnButtonPress();
+        CalculatorWindow.leftParenthesisLabel.leftParenthesisLabelCount();
+        CalculatorWindow.rightParenthesisLabel.rightParenthesisLabelCount();
     }
 
     public void rightParenthesis_OnWindowResize(Size FormSize) {
@@ -684,6 +713,31 @@ public class RightParenthesis : Button
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
+    }
+}
+
+public class RightParenthesisLabel : Label
+{
+    public RightParenthesisLabel(RightParenthesis rightParenthesis) {
+        this.Text = "";
+        this.AutoSize = true;
+        this.Location = new Point(rightParenthesis.Location.X, rightParenthesis.Location.Y + rightParenthesis.Height - this.Height); // Set label to bottom left corner of rightParenthsis
+        this.Font = new Font("Times New Roman", 12, FontStyle.Regular);
+        this.ForeColor = Color.DimGray;
+    }
+
+    public void rightParenthesisLabel_OnWindowResize(RightParenthesis rightParenthesis) {
+        this.Location = new Point(rightParenthesis.Location.X, rightParenthesis.Location.Y + rightParenthesis.Height - this.Height); // Set label to bottom left corner of rightParenthesis
+    }
+
+    public void rightParenthesisLabelCount() {
+        int rightParenthesisOffset = CalculatorWindow.expressionBox.Text.Count(c => c == ')') - CalculatorWindow.expressionBox.Text.Count(c => c == '(');
+        if (rightParenthesisOffset > 0) {
+            this.Text = $"{rightParenthesisOffset}";
+        }
+        else {
+            this.Text = "";
+        }
     }
 }
 

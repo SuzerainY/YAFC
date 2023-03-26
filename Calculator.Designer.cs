@@ -7,6 +7,8 @@ public partial class CalculatorWindow
     public static CalculatorWindow Instance;
     public static ExpressionBox expressionBox;
     public static OutputBox outputBox;
+    public static LeftParenthesisLabel leftParenthesisLabel;
+    public static RightParenthesisLabel rightParenthesisLabel;
 
     // Components of Calculator Declared
     private HelpLink helpLink;
@@ -150,6 +152,16 @@ public partial class CalculatorWindow
         this.Controls.Add(numberPI);
         numberE = new NumberE(FormSize: this.ClientSize); // Number E / e
         this.Controls.Add(numberE);
+    }
+
+    // Initialize Labels
+    private void InitializeLabels(LeftParenthesis leftParenthesis, RightParenthesis rightParenthesis) {
+        leftParenthesisLabel = new LeftParenthesisLabel(leftParenthesis: leftParenthesis); // Left Parenthesis Label
+        this.Controls.Add(leftParenthesisLabel);
+        leftParenthesisLabel.BringToFront();
+        rightParenthesisLabel = new RightParenthesisLabel(rightParenthesis: rightParenthesis); // Right Parenthesis Label
+        this.Controls.Add(rightParenthesisLabel);
+        rightParenthesisLabel.BringToFront();
     }
 
     // This Method Fetches Windows Theme Color And Applies To Calculator UI

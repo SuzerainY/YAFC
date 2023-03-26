@@ -12,6 +12,7 @@ public partial class CalculatorWindow : Form
 
         InitializeComponent(); // Create Form Window
         InitializeButtons(); // Create Buttons
+        InitializeLabels(leftParenthesis: leftParenthesis, rightParenthesis: rightParenthesis); // Create Labels        
         LoadWindowsTheme(); // Fetch and Load User's Windows Color Theme
 
         // Capture Changes In User Visual Preferences To Update Visual Styling
@@ -55,7 +56,9 @@ public partial class CalculatorWindow : Form
         absoluteValueButton.absoluteValueButton_OnWindowResize(FormSize: newSize);
 
         leftParenthesis.leftParenthesis_OnWindowResize(FormSize: newSize);
+        leftParenthesisLabel.leftParenthesisLabel_OnWindowResize(leftParenthesis: leftParenthesis);
         rightParenthesis.rightParenthesis_OnWindowResize(FormSize: newSize);
+        rightParenthesisLabel.rightParenthesisLabel_OnWindowResize(rightParenthesis: rightParenthesis);
         numberPeriod.numberPeriod_OnWindowResize(FormSize: newSize);
         numberZero.numberZero_OnWindowResize(FormSize: newSize);
         numberOne.numberOne_OnWindowResize(FormSize: newSize);
