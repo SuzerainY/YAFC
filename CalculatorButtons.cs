@@ -605,11 +605,11 @@ public class AbsoluteValueButton : Button
 
     public void absoluteValueButton_Click(object? sender, EventArgs e) {
 
-        // If there is a value in the outputBox, we start building off that value, else keep building the expressionBox
+        // If there is a value in the outputBox, we take the absolute value of it, else keep building the expressionBox
         // Allows us to call Enter in the middle of an expression, then pickup from there
         if (CalculatorWindow.outputBox.Text.Length > 0) {
-            CalculatorWindow.expressionBox.Text = CalculatorWindow.outputBox.Text + "Abs(";
-            CalculatorWindow.outputBox.Text = "";
+            Double CurrentOutput = Convert.ToDouble(CalculatorWindow.outputBox.Text);
+            CalculatorWindow.outputBox.Text = $"{Math.Abs(CurrentOutput)}";
         }
         else {
             CalculatorWindow.expressionBox.Text += "Abs(";
@@ -1234,6 +1234,10 @@ public class BackButton : Button
 
     public void backButton_Click(object? sender, EventArgs e) {
         CalculatorWindow.expressionBox.Text = Evaluation.RemoveCharacter(entry: CalculatorWindow.expressionBox.Text);
+        // Make sure we update the parenthesis counters in case we're removing parenthesis
+        CalculatorWindow.leftParenthesisLabel.leftParenthesisLabelCount();
+        CalculatorWindow.rightParenthesisLabel.rightParenthesisLabelCount();
+
         CalculatorWindow.Instance.OnButtonPress();
     }
 
