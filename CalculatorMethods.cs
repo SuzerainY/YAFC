@@ -20,7 +20,7 @@ public static class Evaluation
         // Evaluate the expression
         var answer = e.Evaluate();
 
-        // If the answer is a decimal or double, let's round it to 8 points
+        // If the answer is a decimal or double, let's round it to 15 points
         if (answer is Double || answer is Decimal) {
             answer = Math.Round(Convert.ToDecimal(answer), 15);
         }
@@ -82,7 +82,7 @@ public static class Evaluation
             // Tuples for fetching base and exponent
             (int start, int end) leftBlockIndex = default;
             (int start, int end) rightBlockIndex = default;
-
+            
             // Find the Base block for the Pow
             for (int j = i-1; j >= 0; j--) {
 
@@ -166,18 +166,18 @@ public static class Evaluation
                     continue;
                 }
                 if (entry[k] == ')') {
-                    parenthesisCounter--;
+                    parenthesisCounter--; 
                     // entry = "(5^2)" example | if parenthesis counter goes negative, close block before parenthesis
                     if (parenthesisCounter < 0) {
                         rightBlockIndex = (startOfRightBlock, k-1);
-                        parenthesisCounter = 0;
+                        // parenthesisCounter = 0; // Not necessary as we will break for loop and close method. Variable disallocated.
                         break;
                     }
                     // entry = "(5^(2))" example | if parenthesis counter hits 0, we've closed this block, grab parenthesis
                     // entry = "5^(2)" example | if we've hit max length and above if statement didn't trigger, treat this as close of block
                     else if (k == entry.Length - 1 || parenthesisCounter == 0) {
                         rightBlockIndex = (startOfRightBlock, k);
-                        parenthesisCounter = 0;
+                        // parenthesisCounter = 0; // Not necessary as we will break for loop and close method. Variable disallocated.
                         break;
                     }
                     continue;
@@ -186,7 +186,7 @@ public static class Evaluation
                 // Given we've already translated all special values to their (double)numerical equivalents, check if this char is part of a value
                 // On first entry, we've found the start of the exponent block | on final index of entry, we've found the natural end of the exponent block
                 if (char.IsDigit(entry[k]) || entry[k] == '.' || entry[k] == '-') {
-
+                    
                     // First time we enter this if statement represents finding the start of the block (if there were no parenthesis to start)
                     if (!startOfRightBlockFound) {
                         startOfRightBlockFound = true;
@@ -196,14 +196,14 @@ public static class Evaluation
                     // Example: "5^2-1" we will trigger this when we hit the '-' | Example: "5^(2-1)" this will not trigger because parenthesisCounter != 0
                     else if (entry[k] == '-' && parenthesisCounter == 0) {
                         rightBlockIndex = (startOfRightBlock, k-1);
-                        parenthesisCounter = 0;
+                        // parenthesisCounter = 0; // Not necessary as we will break for loop and close method. Variable disallocated.
                         break;
                     }
 
                     // Capture max index as the natural end of this block and i+1 as the start of the block | this block represents the exponent of the Pow
                     if (k == entry.Length - 1) {
                         rightBlockIndex = (startOfRightBlock, k);
-                        parenthesisCounter = 0;
+                        // parenthesisCounter = 0; // Not necessary as we will break for loop and close method. Variable disallocated.
                         break;
                     }
                     continue; // Continue checking until we either run into a non-digit and parenthesis counter is 0 or we reach end of string
@@ -218,7 +218,7 @@ public static class Evaluation
                         else {
                             rightBlockIndex = (startOfRightBlock, k-1);
                         }
-                        parenthesisCounter = 0;
+                        // parenthesisCounter = 0; // Not necessary as we will break for loop and close method. Variable disallocated.
                         break;
                     }
                     continue; // We still need to find the closing parenthesis
@@ -226,27 +226,36 @@ public static class Evaluation
             }
 
             // Check which symbol we are handling and insert Pow() accordingly
-            if (entry[i] == '^') {
-                // Insert Pow() method into entry before fetching next exponent index
-                // Create Pow to replace the exponent call in entry and fetch the exponent entry to replace
-                String insertPow = $"(Pow({entry.Substring(leftBlockIndex.start, leftBlockIndex.end - leftBlockIndex.start + 1)}, {entry.Substring(rightBlockIndex.start, rightBlockIndex.end - rightBlockIndex.start + 1)}))";
-                String removePow = entry.Substring(leftBlockIndex.start, rightBlockIndex.end - leftBlockIndex.start + 1);
-                // Replace the characters of the string
-                entry = entry.Replace(removePow, insertPow);
-            }
-            else if (entry[i] == '√') {
-                // Same as above, but exponent is 1/exp because this is to the nth root, not the nth power
-                String insertPow = $"(Pow({entry.Substring(leftBlockIndex.start, leftBlockIndex.end - leftBlockIndex.start + 1)}, 1/{entry.Substring(rightBlockIndex.start, rightBlockIndex.end - rightBlockIndex.start + 1)}))";
-                String removePow = entry.Substring(leftBlockIndex.start, rightBlockIndex.end - leftBlockIndex.start + 1);
-                // Replace the characters of the string
-                entry = entry.Replace(removePow, insertPow);
-            }
-            else if (entry[i] == '@') {
-                // Continue as above, but this is for Log base of n
-                String insertLog = $"(Log({entry.Substring(leftBlockIndex.start, leftBlockIndex.end - leftBlockIndex.start + 1)}, {entry.Substring(rightBlockIndex.start, rightBlockIndex.end - rightBlockIndex.start + 1)}))";
-                String removeLog = entry.Substring(leftBlockIndex.start, rightBlockIndex.end - leftBlockIndex.start + 1);
-                // Replace the characters of the string
-                entry = entry.Replace(removeLog, insertLog);
+            switch (entry[i])
+            {
+                case '^':
+                    {
+                        // Insert Pow() method into entry before fetching next exponent index
+                        // Create Pow to replace the exponent call in entry and fetch the exponent entry to replace
+                        String insertPow = $"(Pow({entry.Substring(leftBlockIndex.start, leftBlockIndex.end - leftBlockIndex.start + 1)}, {entry.Substring(rightBlockIndex.start, rightBlockIndex.end - rightBlockIndex.start + 1)}))";
+                        String removePow = entry.Substring(leftBlockIndex.start, rightBlockIndex.end - leftBlockIndex.start + 1);
+                        // Replace the characters of the string
+                        entry = entry.Replace(removePow, insertPow);
+                        break;
+                    }
+                case '√':
+                    {
+                        // Same as above, but exponent is 1/exp because this is to the nth root, not the nth power
+                        String insertPow = $"(Pow({entry.Substring(leftBlockIndex.start, leftBlockIndex.end - leftBlockIndex.start + 1)}, 1/{entry.Substring(rightBlockIndex.start, rightBlockIndex.end - rightBlockIndex.start + 1)}))";
+                        String removePow = entry.Substring(leftBlockIndex.start, rightBlockIndex.end - leftBlockIndex.start + 1);
+                        // Replace the characters of the string
+                        entry = entry.Replace(removePow, insertPow);
+                        break;
+                    }
+                case '@':
+                    {
+                        // Continue as above, but this is for Log base of n
+                        String insertLog = $"(Log({entry.Substring(leftBlockIndex.start, leftBlockIndex.end - leftBlockIndex.start + 1)}, {entry.Substring(rightBlockIndex.start, rightBlockIndex.end - rightBlockIndex.start + 1)}))";
+                        String removeLog = entry.Substring(leftBlockIndex.start, rightBlockIndex.end - leftBlockIndex.start + 1);
+                        // Replace the characters of the string
+                        entry = entry.Replace(removeLog, insertLog);
+                        break;
+                    }
             }
         }
         return entry; // Spits out the entry with Pow() blocks added
