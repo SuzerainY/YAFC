@@ -69,8 +69,6 @@ public static class Evaluation
         // Apply our custom parser for exponents and other unique criteria
         for (int i = entry.IndexOfAny(symbols); i >= 0; i = entry.IndexOfAny(symbols)) {
 
-            // Check for exponents and capture Pow base and exponent blocks
-            // Will populate exponents list with key value pairs where each base block is followed by its exponent block | exponents[0] = base1, exponents[1] = exp1, exponents[2] = base2, exponents[3] = exp3, etc.
             int parenthesisCounter = 0;
             bool leftBlockWrapped = false;
             int endOfLeftBlock = i-1;
@@ -79,14 +77,14 @@ public static class Evaluation
             int startOfRightBlock = i+1;
             bool startOfRightBlockFound = false;
 
-            // Tuples for fetching base and exponent
+            // Tuples for fetching left and right arguments for this operator
             (int start, int end) leftBlockIndex = default;
             (int start, int end) rightBlockIndex = default;
             
             // Find the Base block for the Pow
             for (int j = i-1; j >= 0; j--) {
 
-                // We'll count the number of parenthesis blocks to apply to the base of the Pow
+                // We'll count the number of parenthesis blocks to apply to the left argument of this operator
                 if (entry[j] == ')') {
                     parenthesisCounter++;
                     // First time we enter this if statement represents finding the end of the block (if there are parenthesis)
@@ -117,7 +115,7 @@ public static class Evaluation
                 }
 
                 // Given we've already translated all special values to their (double)numerical equivalents, check if this char is part of a value
-                // On first entry, we've found the end of the base block | on 0 index of j, we've found the natural beginning of the base block
+                // On first entry, we've found the end of the left component | on 0 index of j, we've found the natural beginning of the left component
                 if (char.IsDigit(entry[j]) || entry[j] == '.') {
 
                     // First time we enter this if statement represents finding the end of the block (if there were no parenthesis to start)
@@ -126,7 +124,7 @@ public static class Evaluation
                         endOfLeftBlock = j;
                     }
 
-                    // Capture 0 as the natural start of this block and i-1 as the end of the block | this block represents the base of the exponent
+                    // Capture 0 as the natural start of this block and i-1 as the end of the block | this block represents the left side of the argument
                     if (j == 0) {
                         leftBlockIndex = (0, endOfLeftBlock);
                         parenthesisCounter = 0;
@@ -135,7 +133,7 @@ public static class Evaluation
                     continue; // Continue checking until we either run into a non-digit and parenthesis counter is 0 or we reach start of string
                 }
 
-                // Capture j+1 as the start of this block and i-1 as the end of the block | this block represents the base of the exponent
+                // Capture j+1 as the start of this block and i-1 as the end of the block | this block represents the left side of the argument
                 else {
                     if (parenthesisCounter == 0) {
                         if (leftBlockWrapped) {
@@ -151,10 +149,10 @@ public static class Evaluation
                 }
             }
 
-            // Find the exponent block for the Pow
+            // Find the right side of the block
             for (int k = i+1; k < entry.Length; k++) {
 
-                // We'll count the number of parenthesis blocks to apply to the exponent of the Pow
+                // We'll count the number of parenthesis blocks to apply to the right side of the new argument
                 if (entry[k] == '(') {
                     parenthesisCounter++;
                     // First time we enter this if statement represents finding the start of the block (if there are parenthesis)
@@ -184,7 +182,7 @@ public static class Evaluation
                 }
 
                 // Given we've already translated all special values to their (double)numerical equivalents, check if this char is part of a value
-                // On first entry, we've found the start of the exponent block | on final index of entry, we've found the natural end of the exponent block
+                // On first entry, we've found the start of the right block | on final index of entry, we've found the natural end of the right block
                 if (char.IsDigit(entry[k]) || entry[k] == '.' || entry[k] == '-') {
                     
                     // First time we enter this if statement represents finding the start of the block (if there were no parenthesis to start)
@@ -200,7 +198,7 @@ public static class Evaluation
                         break;
                     }
 
-                    // Capture max index as the natural end of this block and i+1 as the start of the block | this block represents the exponent of the Pow
+                    // Capture max index as the natural end of this block and i+1 as the start of the block | this block represents the right side of operator
                     if (k == entry.Length - 1) {
                         rightBlockIndex = (startOfRightBlock, k);
                         // parenthesisCounter = 0; // Not necessary as we will break for loop and close method. Variable disallocated.
@@ -209,7 +207,7 @@ public static class Evaluation
                     continue; // Continue checking until we either run into a non-digit and parenthesis counter is 0 or we reach end of string
                 }
 
-                // Capture k-1 as the end of this block and i+1 as the start of the block | this block represents the exponent of the exponent call
+                // Capture k-1 as the end of this block and i+1 as the start of the block | this block represents the right side of operator
                 else {
                     if (parenthesisCounter == 0) {
                         if (rightBlockWrapped) {
@@ -258,6 +256,6 @@ public static class Evaluation
                     }
             }
         }
-        return entry; // Spits out the entry with Pow() blocks added
+        return entry; // Spits out the entry w/new blocks added
     }
 }
