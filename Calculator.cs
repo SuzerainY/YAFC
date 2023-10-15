@@ -18,18 +18,18 @@ public partial class CalculatorWindow : Form
         // Capture Changes In User Visual Preferences To Update Visual Styling
         UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
         SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
-        this.Disposed += new EventHandler(Form_Disposed); // Will Remove UserPreferenceChanged from SystemEvents on Form Disposal
+        Disposed += new EventHandler(Form_Disposed); // Will Remove UserPreferenceChanged from SystemEvents on Form Disposal
 
         KeyPreview = true; // Prioritize Key Presses
-        this.Resize += new EventHandler(Window_Resize); // Add Resize Handling
-        this.KeyDown += new KeyEventHandler(Capture_Keypress); // Add Keypress Handling
+        Resize += new EventHandler(Window_Resize); // Add Resize Handling
+        KeyDown += new KeyEventHandler(Capture_Keypress); // Add Keypress Handling
 
-        this.ActiveControl = enterButton; // Open the Application Focused on ENTER Button
+        ActiveControl = enterButton; // Open the Application Focused on ENTER Button
     }
 
     // Process for Handling Form Resizing
     private void Window_Resize(object? sender, EventArgs trigger) {
-        Size newSize = this.ClientSize;
+        Size newSize = ClientSize;
 
         expressionBox.expressionBox_OnWindowResize(FormSize: newSize);
         outputBox.outputBox_OnWindowResize(FormSize: newSize);
@@ -170,7 +170,7 @@ public partial class CalculatorWindow : Form
                 numberNine.PerformClick();
                 return;
             case Keys.Escape: case Keys.End: // Escape and End Keys will close the Calculator
-                this.Close();
+                Close();
                 return;
         }
     }
@@ -178,6 +178,6 @@ public partial class CalculatorWindow : Form
 
     // Handle Focus Allocation on Button Select's w/Mouse
     public void OnButtonPress() {
-        this.ActiveControl = null;
+        ActiveControl = null;
     }
 }

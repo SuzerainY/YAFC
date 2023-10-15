@@ -4,24 +4,24 @@ namespace FinancialCalculator;
 public class ExpressionBox : TextBox
 {
     public ExpressionBox(Size FormSize) {
-        this.Text = "";
-        this.Multiline = false;
-        this.Width = FormSize.Width - 80;
-        this.Height = 20;
-        this.BackColor = Color.FromArgb(unchecked((int)0xFF202020));
-        this.ForeColor = Color.DimGray;
-        this.BorderStyle = BorderStyle.None;
-        this.Location = new Point(
+        Text = "";
+        Multiline = false;
+        Width = FormSize.Width - 80;
+        Height = 20;
+        BackColor = Color.FromArgb(unchecked((int)0xFF202020));
+        ForeColor = Color.DimGray;
+        BorderStyle = BorderStyle.None;
+        Location = new Point(
             FormSize.Width - Width - 40, // We will center it with 40px margins on the edges
             40 // 40 pixels from top edge
         );
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.KeyPress += new KeyPressEventHandler(expressionBox_KeyPress);
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        KeyPress += new KeyPressEventHandler(expressionBox_KeyPress);
     }
 
     public void expressionBox_OnWindowResize(Size FormSize) {
-        this.Width = FormSize.Width - 80;
-        this.Location = new Point(
+        Width = FormSize.Width - 80;
+        Location = new Point(
             FormSize.Width - Width - 40, // We will center it with 40px margins on the edges
             40 // 40 pixels from top edge
         );
@@ -37,24 +37,24 @@ public class ExpressionBox : TextBox
 public class OutputBox : TextBox
 {
     public OutputBox(Size FormSize) {
-        this.Text = "";
-        this.Multiline = false;
-        this.Width = FormSize.Width - 80;
-        this.Height = 20;
-        this.BackColor = Color.FromArgb(unchecked((int)0xFF202020));
-        this.ForeColor = Color.White;
-        this.BorderStyle = BorderStyle.None;
-        this.Location = new Point(
+        Text = "";
+        Multiline = false;
+        Width = FormSize.Width - 80;
+        Height = 20;
+        BackColor = Color.FromArgb(unchecked((int)0xFF202020));
+        ForeColor = Color.White;
+        BorderStyle = BorderStyle.None;
+        Location = new Point(
             FormSize.Width - Width - 40, // We will center it with 40px margins on the edges
             80 // 80 pixels from top edge
         );
-        this.Font = new Font("Times New Roman", 24, FontStyle.Bold);
-        this.KeyPress += new KeyPressEventHandler(outputBox_KeyPress);
+        Font = new Font("Times New Roman", 24, FontStyle.Bold);
+        KeyPress += new KeyPressEventHandler(outputBox_KeyPress);
     }
 
     public void outputBox_OnWindowResize(Size FormSize) {
-        this.Width = FormSize.Width - 80;
-        this.Location = new Point(
+        Width = FormSize.Width - 80;
+        Location = new Point(
             FormSize.Width - Width - 40, // We will center it with 40px margins on the edges
             80 // 80 pixels from top edge
         );
@@ -72,18 +72,18 @@ public class OutputBox : TextBox
 public class PlusButton : Button
 {
     public PlusButton(Size FormSize) {
-        this.Text = "+";
-        this.Width = 80; // 80 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "+";
+        Width = 80; // 80 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 90 // 90 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.White;
-        this.Font = new Font("Times New Roman", 22, FontStyle.Bold);
-        this.Click += new EventHandler(plusButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.White;
+        Font = new Font("Times New Roman", 22, FontStyle.Bold);
+        Click += new EventHandler(plusButton_Click);
     }
 
     public void plusButton_Click(object? sender, EventArgs e) {
@@ -101,7 +101,7 @@ public class PlusButton : Button
     }
 
     public void plusButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 90 // 90 pixels from bottom edge
         );
@@ -111,18 +111,18 @@ public class PlusButton : Button
 public class MinusButton : Button
 {
     public MinusButton(Size FormSize) {
-        this.Text = "-";
-        this.Width = 80; // 80 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "-";
+        Width = 80; // 80 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 140 // 140 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.White;
-        this.Font = new Font("Times New Roman", 26, FontStyle.Bold);
-        this.Click += new EventHandler(minusButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.White;
+        Font = new Font("Times New Roman", 26, FontStyle.Bold);
+        Click += new EventHandler(minusButton_Click);
     }
 
     public void minusButton_Click(object? sender, EventArgs e) {
@@ -139,7 +139,7 @@ public class MinusButton : Button
     }
 
     public void minusButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 140 // 140 pixels from bottom edge
         );
@@ -149,18 +149,18 @@ public class MinusButton : Button
 public class DivideButton : Button
 {
     public DivideButton(Size FormSize) {
-        this.Text = "÷";
-        this.Width = 80; // 80 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "÷";
+        Width = 80; // 80 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 190 // 190 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.White;
-        this.Font = new Font("Times New Roman", 22, FontStyle.Bold);
-        this.Click += new EventHandler(divideButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.White;
+        Font = new Font("Times New Roman", 22, FontStyle.Bold);
+        Click += new EventHandler(divideButton_Click);
     }
 
     public void divideButton_Click(object? sender, EventArgs e) {
@@ -178,7 +178,7 @@ public class DivideButton : Button
     }
 
     public void divideButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 190 // 190 pixels from bottom edge
         );
@@ -188,18 +188,18 @@ public class DivideButton : Button
 public class MultiplyButton : Button
 {
     public MultiplyButton(Size FormSize) {
-        this.Text = "×";
-        this.Width = 80; // 80 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "×";
+        Width = 80; // 80 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.White;
-        this.Font = new Font("Times New Roman", 22, FontStyle.Bold);
-        this.Click += new EventHandler(multiplyButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.White;
+        Font = new Font("Times New Roman", 22, FontStyle.Bold);
+        Click += new EventHandler(multiplyButton_Click);
     }
 
     public void multiplyButton_Click(object? sender, EventArgs e) {
@@ -217,7 +217,7 @@ public class MultiplyButton : Button
     }
 
     public void multiplyButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
@@ -227,18 +227,18 @@ public class MultiplyButton : Button
 public class ChangeSignButton : Button
 {
     public ChangeSignButton(Size FormSize) {
-        this.Text = "+/-";
-        this.Width = 80; // 80 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "+/-";
+        Width = 80; // 80 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
-        this.Click += new EventHandler(changeSignButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 16, FontStyle.Bold);
+        Click += new EventHandler(changeSignButton_Click);
     }
 
     public void changeSignButton_Click(object? sender, EventArgs e) {
@@ -252,7 +252,7 @@ public class ChangeSignButton : Button
     }
 
     public void changeSignButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
@@ -262,18 +262,18 @@ public class ChangeSignButton : Button
 public class NaturalLogButton : Button
 {
     public NaturalLogButton(Size FormSize) {
-        this.Text = "ln";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "ln";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 220, // 220 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-        this.Click += new EventHandler(naturalLogButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        Click += new EventHandler(naturalLogButton_Click);
     }
 
     public void naturalLogButton_Click(object? sender, EventArgs e) {
@@ -287,7 +287,7 @@ public class NaturalLogButton : Button
     }
 
     public void naturalLogButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 220, // 220 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
@@ -297,18 +297,18 @@ public class NaturalLogButton : Button
 public class LogTenButton : Button
 {
     public LogTenButton(Size FormSize) {
-        this.Text = "log";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "log";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 260, // 260 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-        this.Click += new EventHandler(logTenButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        Click += new EventHandler(logTenButton_Click);
     }
 
     public void logTenButton_Click(object? sender, EventArgs e) {
@@ -322,7 +322,7 @@ public class LogTenButton : Button
     }
 
     public void logTenButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 260, // 260 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
@@ -332,18 +332,18 @@ public class LogTenButton : Button
 public class SquareRootButton : Button
 {
     public SquareRootButton(Size FormSize) {
-        this.Text = "√x";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "√x";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 310, // 310 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 14, FontStyle.Bold);
-        this.Click += new EventHandler(squareRootButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 14, FontStyle.Bold);
+        Click += new EventHandler(squareRootButton_Click);
     }
 
     public void squareRootButton_Click(object? sender, EventArgs e) {
@@ -357,7 +357,7 @@ public class SquareRootButton : Button
     }
 
     public void squareRootButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 310, // 310 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
@@ -367,18 +367,18 @@ public class SquareRootButton : Button
 public class SquaredButton : Button
 {
     public SquaredButton(Size FormSize) {
-        this.Text = "x²";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "x²";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 350, // 350 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 14, FontStyle.Bold);
-        this.Click += new EventHandler(squaredButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 14, FontStyle.Bold);
+        Click += new EventHandler(squaredButton_Click);
     }
 
     public void squaredButton_Click(object? sender, EventArgs e) {
@@ -392,7 +392,7 @@ public class SquaredButton : Button
     }
 
     public void squaredButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 350, // 350 pixels from right edge
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
@@ -402,18 +402,18 @@ public class SquaredButton : Button
 public class PowerOfButton : Button
 {
     public PowerOfButton(Size FormSize) {
-        this.Text = "xⁿ";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "xⁿ";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 350, // 350 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 14, FontStyle.Bold);
-        this.Click += new EventHandler(powerOfButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 14, FontStyle.Bold);
+        Click += new EventHandler(powerOfButton_Click);
     }
 
     public void powerOfButton_Click(object? sender, EventArgs e) {
@@ -431,7 +431,7 @@ public class PowerOfButton : Button
     }
 
     public void powerOfButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 350, // 350 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
@@ -441,18 +441,18 @@ public class PowerOfButton : Button
 public class NRootButton : Button
 {
     public NRootButton(Size FormSize) {
-        this.Text = "ⁿ√";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "ⁿ√";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 310, // 310 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 14, FontStyle.Bold);
-        this.Click += new EventHandler(nRootButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 14, FontStyle.Bold);
+        Click += new EventHandler(nRootButton_Click);
     }
 
     public void nRootButton_Click(object? sender, EventArgs e) {
@@ -470,7 +470,7 @@ public class NRootButton : Button
     }
 
     public void nRootButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 310, // 310 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
@@ -480,18 +480,18 @@ public class NRootButton : Button
 public class NLogBaseButton : Button
 {
     public NLogBaseButton(Size FormSize) {
-        this.Text = "logₙ";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "logₙ";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 260, // 260 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 10, FontStyle.Bold);
-        this.Click += new EventHandler(nLogBaseButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 10, FontStyle.Bold);
+        Click += new EventHandler(nLogBaseButton_Click);
     }
 
     public void nLogBaseButton_Click(object? sender, EventArgs e) {
@@ -509,7 +509,7 @@ public class NLogBaseButton : Button
     }
 
     public void nLogBaseButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 260, // 260 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
@@ -519,18 +519,18 @@ public class NLogBaseButton : Button
 public class InverseButton : Button
 {
     public InverseButton(Size FormSize) {
-        this.Text = "1/x";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "1/x";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 220, // 220 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-        this.Click += new EventHandler(inverseButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        Click += new EventHandler(inverseButton_Click);
     }
 
     public void inverseButton_Click(object? sender, EventArgs e) {
@@ -544,7 +544,7 @@ public class InverseButton : Button
     }
 
     public void inverseButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 220, // 220 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
@@ -554,18 +554,18 @@ public class InverseButton : Button
 public class EToXButton : Button
 {
     public EToXButton(Size FormSize) {
-        this.Text = "eˣ";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "eˣ";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 170, // 170 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
-        this.Click += new EventHandler(eToXButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 16, FontStyle.Bold);
+        Click += new EventHandler(eToXButton_Click);
     }
 
     public void eToXButton_Click(object? sender, EventArgs e) {
@@ -579,7 +579,7 @@ public class EToXButton : Button
     }
 
     public void eToXButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 170, // 170 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
@@ -589,18 +589,18 @@ public class EToXButton : Button
 public class AbsoluteValueButton : Button
 {
     public AbsoluteValueButton(Size FormSize) {
-        this.Text = "Abs";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "Abs";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 130, // 130 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 10, FontStyle.Bold);
-        this.Click += new EventHandler(absoluteValueButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 10, FontStyle.Bold);
+        Click += new EventHandler(absoluteValueButton_Click);
     }
 
     public void absoluteValueButton_Click(object? sender, EventArgs e) {
@@ -614,11 +614,13 @@ public class AbsoluteValueButton : Button
         else {
             CalculatorWindow.expressionBox.Text += "Abs(";
         }
+        CalculatorWindow.leftParenthesisLabel.leftParenthesisLabelCount();
+        CalculatorWindow.rightParenthesisLabel.rightParenthesisLabelCount();
         CalculatorWindow.Instance.OnButtonPress();
     }
 
     public void absoluteValueButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 130, // 130 pixels from right edge
             FormSize.Height - Height - 340 // 340 pixels from bottom edge
         );
@@ -630,18 +632,18 @@ public class AbsoluteValueButton : Button
 public class LeftParenthesis : Button
 {
     public LeftParenthesis(Size FormSize) {
-        this.Text = "(";
-        this.Width = 40;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "(";
+        Width = 40;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 350, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(leftParenthesis_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(leftParenthesis_Click);
     }
 
     public void leftParenthesis_Click(object? sender, EventArgs e) {
@@ -652,7 +654,7 @@ public class LeftParenthesis : Button
     }
     public void leftParenthesis_OnWindowResize(Size FormSize) {
 
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 350, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
@@ -662,24 +664,24 @@ public class LeftParenthesis : Button
 public class LeftParenthesisLabel : Label
 {
     public LeftParenthesisLabel(LeftParenthesis leftParenthesis) {
-        this.Text = "";
-        this.AutoSize = true;
-        this.Location = new Point(leftParenthesis.Location.X, leftParenthesis.Location.Y + leftParenthesis.Height - this.Height); // Set label to bottom left corner of leftParenthesis
-        this.Font = new Font("Times New Roman", 12, FontStyle.Regular);
-        this.ForeColor = Color.DimGray;
+        Text = "";
+        AutoSize = true;
+        Location = new Point(leftParenthesis.Location.X, leftParenthesis.Location.Y + leftParenthesis.Height - Height); // Set label to bottom left corner of leftParenthesis
+        Font = new Font("Times New Roman", 12, FontStyle.Regular);
+        ForeColor = Color.DimGray;
     }
 
     public void leftParenthesisLabel_OnWindowResize(LeftParenthesis leftParenthesis) {
-        this.Location = new Point(leftParenthesis.Location.X, leftParenthesis.Location.Y + leftParenthesis.Height - this.Height); // Set label to bottom left corner of leftParenthesis
+        Location = new Point(leftParenthesis.Location.X, leftParenthesis.Location.Y + leftParenthesis.Height - Height); // Set label to bottom left corner of leftParenthesis
     }
 
     public void leftParenthesisLabelCount() {
         int leftParenthesisOffset = CalculatorWindow.expressionBox.Text.Count(c => c == '(') - CalculatorWindow.expressionBox.Text.Count(c => c == ')');
         if (leftParenthesisOffset > 0) {
-            this.Text = $"{leftParenthesisOffset}";
+            Text = $"{leftParenthesisOffset}";
         }
         else {
-            this.Text = "";
+            Text = "";
         }
     }
 }
@@ -687,18 +689,18 @@ public class LeftParenthesisLabel : Label
 public class RightParenthesis : Button
 {
     public RightParenthesis(Size FormSize) {
-        this.Text = ")";
-        this.Width = 40;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = ")";
+        Width = 40;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(rightParenthesis_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(rightParenthesis_Click);
     }
 
     public void rightParenthesis_Click(object? sender, EventArgs e) {
@@ -709,7 +711,7 @@ public class RightParenthesis : Button
     }
 
     public void rightParenthesis_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
@@ -719,24 +721,24 @@ public class RightParenthesis : Button
 public class RightParenthesisLabel : Label
 {
     public RightParenthesisLabel(RightParenthesis rightParenthesis) {
-        this.Text = "";
-        this.AutoSize = true;
-        this.Location = new Point(rightParenthesis.Location.X, rightParenthesis.Location.Y + rightParenthesis.Height - this.Height); // Set label to bottom left corner of rightParenthsis
-        this.Font = new Font("Times New Roman", 12, FontStyle.Regular);
-        this.ForeColor = Color.DimGray;
+        Text = "";
+        AutoSize = true;
+        Location = new Point(rightParenthesis.Location.X, rightParenthesis.Location.Y + rightParenthesis.Height - Height); // Set label to bottom left corner of rightParenthsis
+        Font = new Font("Times New Roman", 12, FontStyle.Regular);
+        ForeColor = Color.DimGray;
     }
 
     public void rightParenthesisLabel_OnWindowResize(RightParenthesis rightParenthesis) {
-        this.Location = new Point(rightParenthesis.Location.X, rightParenthesis.Location.Y + rightParenthesis.Height - this.Height); // Set label to bottom left corner of rightParenthesis
+        Location = new Point(rightParenthesis.Location.X, rightParenthesis.Location.Y + rightParenthesis.Height - Height); // Set label to bottom left corner of rightParenthesis
     }
 
     public void rightParenthesisLabelCount() {
         int rightParenthesisOffset = CalculatorWindow.expressionBox.Text.Count(c => c == ')') - CalculatorWindow.expressionBox.Text.Count(c => c == '(');
         if (rightParenthesisOffset > 0) {
-            this.Text = $"{rightParenthesisOffset}";
+            Text = $"{rightParenthesisOffset}";
         }
         else {
-            this.Text = "";
+            Text = "";
         }
     }
 }
@@ -744,18 +746,18 @@ public class RightParenthesisLabel : Label
 public class NumberPeriod : Button
 {
     public NumberPeriod(Size FormSize) {
-        this.Text = ".";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = ".";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberPeriod_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberPeriod_Click);
     }
 
     public void numberPeriod_Click(object? sender, EventArgs e) {
@@ -764,7 +766,7 @@ public class NumberPeriod : Button
     }
 
     public void numberPeriod_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
@@ -774,18 +776,18 @@ public class NumberPeriod : Button
 public class NumberZero : Button
 {
     public NumberZero(Size FormSize) {
-        this.Text = "0";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "0";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 220, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberZero_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberZero_Click);
     }
 
     public void numberZero_Click(object? sender, EventArgs e) {
@@ -794,7 +796,7 @@ public class NumberZero : Button
     }
 
     public void numberZero_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 220, // flush with left of other numbers
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
@@ -804,18 +806,18 @@ public class NumberZero : Button
 public class NumberOne : Button
 {
     public NumberOne(Size FormSize) {
-        this.Text = "1";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "1";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 90 // 90 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberOne_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberOne_Click);
     }
 
     public void numberOne_Click(object? sender, EventArgs e) {
@@ -824,7 +826,7 @@ public class NumberOne : Button
     }
 
     public void numberOne_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 90 // 90 pixels from bottom edge
         );
@@ -834,18 +836,18 @@ public class NumberOne : Button
 public class NumberTwo : Button
 {
     public NumberTwo(Size FormSize) {
-        this.Text = "2";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "2";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 220, // flush with left of other numbers
             FormSize.Height - Height - 90 // 90 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberTwo_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberTwo_Click);
     }
 
     public void numberTwo_Click(object? sender, EventArgs e) {
@@ -854,7 +856,7 @@ public class NumberTwo : Button
     }
 
     public void numberTwo_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 220, // flush with left of other numbers
             FormSize.Height - Height - 90 // 90 pixels from bottom edge
         );
@@ -864,18 +866,18 @@ public class NumberTwo : Button
 public class NumberThree : Button
 {
     public NumberThree(Size FormSize) {
-        this.Text = "3";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "3";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 90 // 90 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberThree_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberThree_Click);
     }
 
     public void numberThree_Click(object? sender, EventArgs e) {
@@ -884,7 +886,7 @@ public class NumberThree : Button
     }
 
     public void numberThree_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 90 // 90 pixels from bottom edge
         );
@@ -894,18 +896,18 @@ public class NumberThree : Button
 public class NumberFour : Button
 {
     public NumberFour(Size FormSize) {
-        this.Text = "4";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "4";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 140 // 140 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberFour_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberFour_Click);
     }
 
     public void numberFour_Click(object? sender, EventArgs e) {
@@ -914,7 +916,7 @@ public class NumberFour : Button
     }
 
     public void numberFour_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 140 // 140 pixels from bottom edge
         );
@@ -924,18 +926,18 @@ public class NumberFour : Button
 public class NumberFive : Button
 {
     public NumberFive(Size FormSize) {
-        this.Text = "5";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "5";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 220, // flush with left of other numbers
             FormSize.Height - Height - 140 // 140 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberFive_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberFive_Click);
     }
 
     public void numberFive_Click(object? sender, EventArgs e) {
@@ -944,7 +946,7 @@ public class NumberFive : Button
     }
 
     public void numberFive_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 220, // flush with left of other numbers
             FormSize.Height - Height - 140 // 140 pixels from bottom edge
         );
@@ -954,18 +956,18 @@ public class NumberFive : Button
 public class NumberSix : Button
 {
     public NumberSix(Size FormSize) {
-        this.Text = "6";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "6";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 140 // 140 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberSix_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberSix_Click);
     }
 
     public void numberSix_Click(object? sender, EventArgs e) {
@@ -974,7 +976,7 @@ public class NumberSix : Button
     }
 
     public void numberSix_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 140 // 140 pixels from bottom edge
         );
@@ -984,18 +986,18 @@ public class NumberSix : Button
 public class NumberSeven : Button
 {
     public NumberSeven(Size FormSize) {
-        this.Text = "7";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "7";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 190 // 190 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberSeven_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberSeven_Click);
     }
 
     public void numberSeven_Click(object? sender, EventArgs e) {
@@ -1004,7 +1006,7 @@ public class NumberSeven : Button
     }
 
     public void numberSeven_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 310, // flush with left of other numbers
             FormSize.Height - Height - 190 // 190 pixels from bottom edge
         );
@@ -1016,18 +1018,18 @@ public class NumberEight : Button
     
     public NumberEight(Size FormSize) {
         
-        this.Text = "8";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "8";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 220, // flush with left of other numbers
             FormSize.Height - Height - 190 // 190 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberEight_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberEight_Click);
     }
 
     public void numberEight_Click(object? sender, EventArgs e) {
@@ -1036,7 +1038,7 @@ public class NumberEight : Button
     }
 
     public void numberEight_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 220, // flush with left of other numbers
             FormSize.Height - Height - 190 // 190 pixels from bottom edge
         );
@@ -1046,18 +1048,18 @@ public class NumberEight : Button
 public class NumberNine : Button
 {
     public NumberNine(Size FormSize) {
-        this.Text = "9";
-        this.Width = 80;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "9";
+        Width = 80;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 190 // 190 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 18, FontStyle.Bold);
-        this.ForeColor = Color.White;
-        this.Click += new EventHandler(numberNine_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 18, FontStyle.Bold);
+        ForeColor = Color.White;
+        Click += new EventHandler(numberNine_Click);
     }
 
     public void numberNine_Click(object? sender, EventArgs e) {
@@ -1066,7 +1068,7 @@ public class NumberNine : Button
     }
 
     public void numberNine_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 190 // 190 pixels from bottom edge
         );
@@ -1076,18 +1078,18 @@ public class NumberNine : Button
 public class NumberPI : Button
 {
     public NumberPI(Size FormSize) {
-        this.Text = "π";
-        this.Width = 40;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "π";
+        Width = 40;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
-        this.ForeColor = Color.DimGray;
-        this.Click += new EventHandler(numberPI_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 16, FontStyle.Bold);
+        ForeColor = Color.DimGray;
+        Click += new EventHandler(numberPI_Click);
     }
 
     public void numberPI_Click(object? sender, EventArgs e) {
@@ -1096,7 +1098,7 @@ public class NumberPI : Button
     }
 
     public void numberPI_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 130, // flush with left of other numbers
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
@@ -1106,18 +1108,18 @@ public class NumberPI : Button
 public class NumberE : Button
 {
     public NumberE(Size FormSize) {
-        this.Text = "e";
-        this.Width = 40;
-        this.Height = 40;
-        this.Location = new Point(
+        Text = "e";
+        Width = 40;
+        Height = 40;
+        Location = new Point(
             FormSize.Width - Width - 170, // flush with left of other numbers
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
-        this.ForeColor = Color.DimGray;
-        this.Click += new EventHandler(numberE_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        Font = new Font("Times New Roman", 16, FontStyle.Bold);
+        ForeColor = Color.DimGray;
+        Click += new EventHandler(numberE_Click);
     }
 
     public void numberE_Click(object? sender, EventArgs e) {
@@ -1126,7 +1128,7 @@ public class NumberE : Button
     }
 
     public void numberE_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 170, // flush with left of other numbers
             FormSize.Height - Height - 290 // 290 pixels from bottom edge
         );
@@ -1138,19 +1140,19 @@ public class NumberE : Button
 public class HelpLink : Button
 {
     public HelpLink() {
-        this.Text = "Help | GitHub";
-        this.Width = 80; // 80 pixels in width
-        this.Height = 25; // 20 pixels in height
-        this.Location = new Point(
+        Text = "Help | GitHub";
+        Width = 80; // 80 pixels in width
+        Height = 25; // 20 pixels in height
+        Location = new Point(
             33, // 33 pixels from left border | appears as 40 pixels due to text padding (unable to give perfect 0 pixel padding for some reason)
             5 // 5 pixels from top border
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.TextAlign = ContentAlignment.TopLeft;
-        this.ForeColor = Color.DimGray;
-        this.Font = new Font("Times New Roman", 8, FontStyle.Regular);
-        this.Click += new EventHandler(helpLink_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        TextAlign = ContentAlignment.TopLeft;
+        ForeColor = Color.DimGray;
+        Font = new Font("Times New Roman", 8, FontStyle.Regular);
+        Click += new EventHandler(helpLink_Click);
     }
 
     public void helpLink_Click(object? sender, EventArgs e) {
@@ -1168,7 +1170,7 @@ public class HelpLink : Button
     }
 
     public void helpLink_OnWindowResize() {
-        this.Location = new Point(
+        Location = new Point(
             33, // 33 pixels from left border | appears as 40 pixels due to text padding (unable to give perfect 0 pixel padding for some reason)
             5 // 5 pixels from top border
         );
@@ -1178,19 +1180,19 @@ public class HelpLink : Button
 public class EnterButton : Button
 {
     public EnterButton(Size FormSize) {
-        this.Text = "ENTER";
-        this.Width = 80; // 80 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "ENTER";
+        Width = 80; // 80 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderColor = Color.White;
-        this.FlatAppearance.BorderSize = 2;
-        this.ForeColor = Color.White;
-        this.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-        this.Click += new EventHandler(enterButton_Click);
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderColor = Color.White;
+        FlatAppearance.BorderSize = 2;
+        ForeColor = Color.White;
+        Font = new Font("Times New Roman", 12, FontStyle.Bold);
+        Click += new EventHandler(enterButton_Click);
     }
 
     public void enterButton_Click(object? sender, EventArgs e) {
@@ -1206,7 +1208,7 @@ public class EnterButton : Button
     }
 
     public void enterButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 40, // 40 pixels from right edge
             FormSize.Height - Height - 40 // 40 pixels from bottom edge
         );
@@ -1216,20 +1218,20 @@ public class EnterButton : Button
 public class BackButton : Button
 {
     public BackButton(Size FormSize) {
-        this.Text = "«";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "«";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 150, // 150 pixels from right edge
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.FlatAppearance.BorderColor = Color.White;
-        this.ForeColor = CalculatorWindow.Instance.BackColor;
-        this.Font = new Font("Times New Roman", 22, FontStyle.Bold);
-        this.Click += new EventHandler(backButton_Click);
-        this.Paint += backButton_Paint;
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        FlatAppearance.BorderColor = Color.White;
+        ForeColor = CalculatorWindow.Instance.BackColor;
+        Font = new Font("Times New Roman", 22, FontStyle.Bold);
+        Click += new EventHandler(backButton_Click);
+        Paint += backButton_Paint;
     }
 
     public void backButton_Click(object? sender, EventArgs e) {
@@ -1242,7 +1244,7 @@ public class BackButton : Button
     }
 
     public void backButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 150, // 150 pixels from right edge
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
@@ -1251,7 +1253,7 @@ public class BackButton : Button
     private void backButton_Paint(object? sender, PaintEventArgs e) {
 
         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-        e.Graphics.DrawEllipse(new Pen(this.FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
+        e.Graphics.DrawEllipse(new Pen(FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
         System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
         RectangleF ellipseRect = new RectangleF(0, 0, Width, Height);
@@ -1268,20 +1270,20 @@ public class BackButton : Button
 public class ClearButton : Button
 {
     public ClearButton(Size FormSize) {
-        this.Text = "C";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = "C";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 240, // 240 pixels from right edge
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.FlatAppearance.BorderColor = Color.White;
-        this.ForeColor = CalculatorWindow.Instance.BackColor;
-        this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
-        this.Click += new EventHandler(clearButton_Click);
-        this.Paint += clearButton_Paint;
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        FlatAppearance.BorderColor = Color.White;
+        ForeColor = CalculatorWindow.Instance.BackColor;
+        Font = new Font("Times New Roman", 16, FontStyle.Bold);
+        Click += new EventHandler(clearButton_Click);
+        Paint += clearButton_Paint;
     }
 
     public void clearButton_Click(object? sender, EventArgs e) {
@@ -1298,7 +1300,7 @@ public class ClearButton : Button
     }
 
     public void clearButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 240, // 240 pixels from right edge
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
@@ -1307,7 +1309,7 @@ public class ClearButton : Button
     private void clearButton_Paint(object? sender, PaintEventArgs e) {
 
         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-        e.Graphics.DrawEllipse(new Pen(this.FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
+        e.Graphics.DrawEllipse(new Pen(FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
         System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
         RectangleF ellipseRect = new RectangleF(0, 0, Width, Height);
@@ -1324,20 +1326,20 @@ public class ClearButton : Button
 public class PercentButton : Button
 {
     public PercentButton(Size FormSize) {
-        this.Text = " % ";
-        this.Width = 40; // 40 pixels in width
-        this.Height = 40; // 40 pixels in height
-        this.Location = new Point(
+        Text = " % ";
+        Width = 40; // 40 pixels in width
+        Height = 40; // 40 pixels in height
+        Location = new Point(
             FormSize.Width - Width - 330, // 330 pixels from right edge
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
-        this.FlatStyle = FlatStyle.Flat;
-        this.FlatAppearance.BorderSize = 0;
-        this.FlatAppearance.BorderColor = Color.White;
-        this.ForeColor = CalculatorWindow.Instance.BackColor;
-        this.Font = new Font("Times New Roman", 16, FontStyle.Bold);
-        this.Click += new EventHandler(percentButton_Click);
-        this.Paint += percentButton_Paint;
+        FlatStyle = FlatStyle.Flat;
+        FlatAppearance.BorderSize = 0;
+        FlatAppearance.BorderColor = Color.White;
+        ForeColor = CalculatorWindow.Instance.BackColor;
+        Font = new Font("Times New Roman", 16, FontStyle.Bold);
+        Click += new EventHandler(percentButton_Click);
+        Paint += percentButton_Paint;
     }
 
     public void percentButton_Click(object? sender, EventArgs e) {
@@ -1349,7 +1351,7 @@ public class PercentButton : Button
     }
 
     public void percentButton_OnWindowResize(Size FormSize) {
-        this.Location = new Point(
+        Location = new Point(
             FormSize.Width - Width - 330, // 330 pixels from right edge
             FormSize.Height - Height - 240 // 240 pixels from bottom edge
         );
@@ -1358,7 +1360,7 @@ public class PercentButton : Button
     private void percentButton_Paint(object? sender, PaintEventArgs e) {
 
         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-        e.Graphics.DrawEllipse(new Pen(this.FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
+        e.Graphics.DrawEllipse(new Pen(FlatAppearance.BorderColor, 2), 0, 0, Width - 2, Height - 2);
         System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
         RectangleF ellipseRect = new RectangleF(0, 0, Width, Height);
